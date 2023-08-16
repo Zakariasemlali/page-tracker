@@ -9,7 +9,7 @@ services:
   web-service:
     build: ./web
     environment:
-      - REDIS_URL=${REDIS_URL}
+      - REDIS_URL=redis://redis-service:6379
     ports:
       - "80:5000"
     networks:
