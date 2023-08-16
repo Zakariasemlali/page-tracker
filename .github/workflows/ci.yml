@@ -35,5 +35,5 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/page-tracker:${{ github.sha }}
-            ${{ secrets.DOCKERHUB_PASSWD }}/page-tracker:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/page-tracker:latest
             
