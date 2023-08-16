@@ -1,0 +1,25 @@
+version: '3'
+services:
+  redis-service:
+    image: "redis"
+    networks:
+      - backend-network
+    volumes:
+      - "redis-volume:/data"
+  web-service:
+    build: ./web
+    environment:
+      - REDIS_URL=${REDIS_URL}
+    ports:
+      - "80:5000"
+    networks:
+      - backend-network
+    depends_on:
+      - redis-service
+
+networks:
+  backend-network:
+
+volumes:
+  redis-volume:
+    
