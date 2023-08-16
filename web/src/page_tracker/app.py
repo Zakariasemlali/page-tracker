@@ -9,7 +9,7 @@ Author: zakaria
 """
 
 import os
-from functools import cache
+from functools import lru_cache
 
 from flask import Flask
 from redis import Redis, RedisError
@@ -36,7 +36,7 @@ def index():
     return f"This page has been seen {page_views} times."
 
 
-@cache
+@lru_cache
 def redis():
     """
     Get Redis Connection
